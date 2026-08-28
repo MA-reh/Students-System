@@ -11,10 +11,20 @@ require_once __DIR__ . "/backend/helpers.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="Students System - A simple PHP & MySQL CRUD web app to add, edit, delete, search and manage student records with AJAX.">
+    <meta name="keywords" content="students system, php, mysql, crud, student management, ajax, jquery, php project">
+    <meta name="author" content="MA-reh">
 
-    <title>Students System</title>
+    <title>Students System | PHP & MySQL Student Management</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Students System">
+    <meta property="og:description" content="A simple PHP & MySQL CRUD web app to add, edit, delete, search and manage student records with AJAX.">
+    <meta property="og:image" content="http://ma-reh-system-students.atwebpages.com/assets/images/image.png">
+    <meta property="og:url" content="http://ma-reh-system-students.atwebpages.com/">
+    <meta property="og:site_name" content="Students System">
+    <meta property="og:locale" content="en_US">
+
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
