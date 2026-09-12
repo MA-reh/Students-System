@@ -9,7 +9,7 @@
 [![jQuery](https://img.shields.io/badge/jQuery-AJAX-0769AD?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-UI-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-[🔗 Live Demo](http://ma-reh-system-students.atwebpages.com/) · [🐛 Report a Bug](https://github.com/MA-reh/Students-System/issues) · [✨ Request a Feature](https://github.com/MA-reh/Students-System/issues)
+[🔗 Live Demo](http://studentsystem.myartsonline.com/) · [🐛 Report a Bug](https://github.com/MA-reh/Students-System/issues) · [✨ Request a Feature](https://github.com/MA-reh/Students-System/issues)
 
 </div>
 
@@ -184,6 +184,6 @@ This project was built for learning purposes. Before using it in production, con
 
 <div align="center">
 
-### 🔗 [http://ma-reh-system-students.atwebpages.com/](http://ma-reh-system-students.atwebpages.com/)
+### 🔗 [http://studentsystem.myartsonline.com/](http://studentsystem.myartsonline.com/)
 
 </div>
