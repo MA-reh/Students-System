@@ -8,6 +8,7 @@ require_once __DIR__ . "/helpers.php";
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     throwError(403, "Method not Allowed");
 }
+
 $_SESSION["_old"] = $_POST;
 $_SESSION["_errors"] = [];
 

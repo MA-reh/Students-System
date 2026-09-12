@@ -27,13 +27,15 @@ function validate()
         }
 
         if ($flag) {
-
             unset($_SESSION["_errors"]);
             back();
         }
 
         validateRequired($field, $value);
-        if ($field == "email") {
+
+        if ($field == "firstName" || $field == "lastName") {
+            validateName($field, $value);
+        } else if ($field == "email") {
             validateEmail($field, $value);
             validateUnique($field, $value, "students");
         } else if ($field == "phone") {
@@ -72,7 +74,9 @@ function editValidate()
             validateRequired($field, $value);
         }
 
-        if ($field == "email") {
+        if ($field == "firstName" || $field == "lastName") {
+            validateName($field, $value);
+        } else if ($field == "email") {
             validateEmail($field, $value);
             validateUnique($field, $value, "students", $_POST["id"]);
         } else if ($field == "phone") {
@@ -92,6 +96,20 @@ function validateRequired(string $field, mixed $value)
 {
     if ($value === null || trim($value) == "") {
         addError($field, "{$field} is Required");
+    }
+}
+
+function validateName(string $field, mixed $value)
+{
+
+    if (empty($value)) {
+        return;
+    }
+
+    $regex = "/^[A-Za-z][A-Za-z]+$/";
+
+    if (!preg_match($regex, $value)) {
+        addError($field, "{$field} Write Name With Letters Only.");
     }
 }
 

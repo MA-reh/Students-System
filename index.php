@@ -46,7 +46,7 @@ require_once __DIR__ . "/backend/helpers.php";
         <div class="container-fluid px-5">
 
             <div class="row">
-                <div class="col-xl-4 col-md-6 col-sm-7 mx-auto">
+                <div class="col-xl-4 col-md-8 col-sm-7 mx-auto">
                     <div class="item">
                         <img src="assets/images/logo.png" alt="logo" class="img-fluid mx-auto d-block">
                         <h1 class="header-text h2 text-center my-4">Add New Students</h1>
@@ -88,7 +88,7 @@ require_once __DIR__ . "/backend/helpers.php";
                                     <label for="Password" class="input-group-text" id="basic-addon1">
                                         <i class="fa-solid fa-key"></i>
                                     </label>
-                                    <input type="text" class="form-control" placeholder="Enter his/her Password" name="password" id="Password" value="<?= old('password') ?>">
+                                    <input type="password" class="form-control" placeholder="Enter his/her Password" name="password" id="Password" value="<?= old('password') ?>">
                                 </div>
                                 <?= getError("password") ?>
                             </div>
@@ -112,12 +112,13 @@ require_once __DIR__ . "/backend/helpers.php";
                                 </div>
                                 <?= getError("phone") ?>
                             </div>
-                            <div class="d-flex">
-                                <button type="submit" class="fw-semibold btn btn-success w-75 me-2">Add</button>
-                                <button type="reset" class="fw-semibold btn btn-danger w-25" onclick="clearForm()">Clear</button>
+                            <div class="container">
+                                <div class="row column-gap-2">
+                                    <button type="submit" class="fw-semibold btn btn-success mx-auto col-md-8 mb-2 mb-md-0">Add</button>
+                                    <button type="reset" class="fw-semibold btn btn-danger mx-auto col-md-3" onclick="clearForm()">Clear</button>
+                                </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
                 <div class="col-xl-8">
@@ -135,7 +136,7 @@ require_once __DIR__ . "/backend/helpers.php";
                             <button type="submit" class="btn btn-success w-100">Search</button>
                         </form>
                         <div class="table-responsive mt-5 pb-2">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover mx-auto">
                                 <thead class="table-dark">
                                     <tr>
                                         <th scope="col">#</th>

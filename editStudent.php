@@ -81,7 +81,7 @@ require_once __DIR__ . "/backend/getStudent.php";
                                     <label for="Password" class="input-group-text" id="basic-addon1">
                                         <i class="fa-solid fa-key"></i>
                                     </label>
-                                    <input type="text" class="form-control" placeholder="" name="password" id="Password" value="<?= old('password') ?>">
+                                    <input type="text" class="form-control" placeholder="" name="password" id="Password">
                                 </div>
                                 <?= getError("password") ?>
                             </div>
@@ -106,8 +106,7 @@ require_once __DIR__ . "/backend/getStudent.php";
                                 <?= getError("phone") ?>
                             </div>
                             <div class="d-flex">
-                                <button type="submit" class="fw-semibold btn btn-info text-light w-75 me-2">Edit</button>
-                                <button type="reset" class="fw-semibold btn btn-danger w-25" onclick="clearForm()">Clear</button>
+                                <button type="submit" class="fw-semibold btn btn-info text-light w-100 me-2">Edit</button>
                             </div>
                         </form>
 

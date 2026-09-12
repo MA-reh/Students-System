@@ -38,8 +38,8 @@ function getStudentsCount($search = "")
     $DB = connection();
 
     $subQuery = "";
-    
-    if (!empty($search)){
+
+    if (!empty($search)) {
         $subQuery = "
             WHERE 
              concat(first_name, ' ', last_name) LIKE '%$search%'

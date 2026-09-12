@@ -50,6 +50,10 @@ body {
     text-decoration: none;
 }
 
+.table-responsive table {
+    width: max-content !important;
+}
+
 .pages-links:focus {
     border-color: #C9D0FC !important;
     z-index: 3;
@@ -161,7 +165,7 @@ i {
 
 
 #StudentSystem #addForm {
-    max-width: 450px;
+    max-width: 500px;
     margin: auto;
 }
 

@@ -38,8 +38,6 @@ function back()
     header("Location: {$path}");
     exit();
 }
-
-
 function getError(string $key)
 {
     $htmlErr = "";

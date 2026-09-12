@@ -1,4 +1,4 @@
-
+let lastValue = "";
 document.addEventListener("DOMContentLoaded", function () {
     loadingPage.classList.add("fade");
     setTimeout(function () {
@@ -13,6 +13,10 @@ $('#formSearch').submit(function (e) {
 
     searchValue = $('#formSearch')[0].querySelector("input").value;
 
-    newSearchAjax(searchValue, currentIndicator);
+    if (searchValue == lastValue) return;
+
+    lastValue = searchValue;
+
+    newSearchAjax(searchValue, 1);
 });
 

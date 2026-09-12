@@ -27,7 +27,6 @@ function deleteStudent(idStudent) {
         type: "POST",
         data: { tableName: "students", id: idStudent },
         success: function (data$) {
-            console.log(data$);
             Swal.fire({
                 title: "Deleted!",
                 text: "the Student has been deleted.",
@@ -45,14 +44,11 @@ function deleteStudent(idStudent) {
 
         },
         error: function (error) {
-            console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: error["responseJSON"]["message"],
             });
-
-
         }
     })
 
@@ -60,37 +56,39 @@ function deleteStudent(idStudent) {
 }
 
 function pagination(total, page) {
-    $("ul.pagination").html("");
-    let currentPage = page;
-    let liHTML = "";
-    numberOfPages = Math.ceil(total / 10);
+    if (total > 0) {
+        $("ul.pagination").html("");
+        let currentPage = page;
+        let liHTML = "";
+        numberOfPages = Math.ceil(total / 10);
 
-    let valueOfSearch = $('#formSearch input')[0].value;
-    if (total !== 0) {
+        let valueOfSearch = $('#formSearch input')[0].value;
+        if (total !== 0) {
 
-        for (let i = 0; i <= numberOfPages + 1; i++) {
+            for (let i = 0; i <= numberOfPages + 1; i++) {
+                if (i == 0) {
+                    let isDisabled = (currentPage == 1) ? "disabled" : "";
+                    let prevPage = (currentPage == 1) ? 1 : currentPage - 1;
 
+                    liHTML += `<li class='page-item'><span data-pagination="prev" onclick='paginationClick("prev")' class='btn me-2 pages-links prev ${isDisabled}' ${isDisabled}>Previous</span></li>`;
+                } else if (i == numberOfPages + 1) {
+                    let isDisabled = (currentPage == numberOfPages) ? "disabled" : "";
+                    let nextPage = (currentPage == numberOfPages) ? numberOfPages : currentPage + 1;
 
-            if (i == 0) {
-                let isDisabled = (currentPage == 1) ? "disabled" : "";
-                let prevPage = (currentPage == 1) ? 1 : currentPage - 1;
+                    liHTML += `<li class='page-item'><span data-pagination="next" onclick='paginationClick("next")' class='btn pages-links next ${isDisabled}' ${isDisabled}>Next</span></li>`;
+                } else {
+                    let isActive = (i === currentPage) ? "active" : "";
 
-                liHTML += `<li class='page-item'><span data-pagination="prev" onclick='paginationClick("prev")' class='btn me-2 pages-links prev ${isDisabled}'>Previous</span></li>`;
-            } else if (i == numberOfPages + 1) {
-                let isDisabled = (currentPage == numberOfPages) ? "disabled" : "";
-                let nextPage = (currentPage == numberOfPages) ? numberOfPages : currentPage + 1;
-
-                liHTML += `<li class='page-item'><span data-pagination="next" onclick='paginationClick("next")' class='btn pages-links next ${isDisabled}'>Next</span></li>`;
-            } else {
-                let isActive = (i === currentPage) ? "active" : "";
-
-                liHTML += `<li class='page-item'><span data-pagination="${i}" onclick='paginationClick(${i})' class='btn me-2 pages-links  ${isActive}'>${i}</span></li>`;
+                    liHTML += `<li class='page-item'><span data-pagination="${i}" onclick='paginationClick(${i})' class='btn me-2 pages-links ${isActive}'>${i}</span></li>`;
+                }
             }
         }
+
+
+        $("ul.pagination").append(liHTML);
+    } else {
+        $("ul.pagination").html("");
     }
-
-
-    $("ul.pagination").append(liHTML);
 
 }
 
@@ -164,17 +162,14 @@ function paginationClick(contentBtn) {
 
     let indicator = document.querySelector(`li .pages-links[data-pagination="${contentBtn}"]`) ?? undefined;
 
-    console.log(indicator);
-
+    $("li .pages-links").prop("disabled", true);
 
     if (indicator.classList.contains("active") || indicator.classList.contains("disabled")) return;
-
 
     if (contentBtn == "prev") {
         currentIndicator = (currentIndicator > 1) ? --currentIndicator : 1;
 
         newSearchAjax(searchValue, currentIndicator);
-
     } else if (contentBtn == "next") {
 
         currentIndicator = (currentIndicator >= numberOfPages) ? numberOfPages : ++currentIndicator;
@@ -190,7 +185,6 @@ function paginationClick(contentBtn) {
             activeIndicator.classList.remove("active");
             indicator.classList.add("active");
         }, 10);
-
 
         newSearchAjax(searchValue, contentBtn);
     }
